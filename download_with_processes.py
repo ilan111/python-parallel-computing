@@ -11,7 +11,7 @@ def downloader(process_id, url, queue):
         print(f"Error with thread {process_id}, url - {url}: {e}")
 
 def main():
-    CHARS_COUNTER = 0
+    chars_counter = 0
     queue = multiprocessing.Queue()
     processes = []
     urls = [
@@ -33,10 +33,10 @@ def main():
 
     while not queue.empty():
         process_id, chars, url = queue.get()
-        CHARS_COUNTER += chars
+        chars_counter += chars
         print(f"Process {process_id} Downloaded {chars} chars from {url}")
 
-    print(f"Total number of chars downloaded is: {CHARS_COUNTER}")
+    print(f"Total number of chars downloaded is: {chars_counter}")
 
 if __name__ == "__main__":
     main()
