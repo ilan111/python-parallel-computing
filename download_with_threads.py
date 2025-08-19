@@ -12,8 +12,7 @@ def downloader(mutex, thread_id, url, returns):
         # Critical section
         with mutex:
             CHARS_COUNTER += chars_in_json
-
-        returns.append((thread_id, chars_in_json, url))
+            returns.append((thread_id, chars_in_json, url))
 
     except Exception as e:
         print(f"Error with thread {thread_id}, url - {url}: {e}")
